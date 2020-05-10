@@ -1,21 +1,17 @@
-<h1 class='display-4 text-center m-3'>Apparel</h1>
-<div class="card-group">
-  <% @apparels.each do |apparel| %>
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">
-          <%= apparel.brand %>
-          <%= apparel.model %>
-        </h5>
-        <p class="card-text">
-          Size: <%= apparel.size %>
-          <br>
-          $<%= apparel.price %>
-        </p>
+<h1 class='display-4 text-center mt-5 m-3'>Apparels</h1>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3">
+    <% @apparels[0..5].each do |apparel| %>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <%= image_tag apparel.picture, class: 'card-img-top', width: 300 if apparel.picture.attached?%>
+          <div class="card-body">
+            <h5 class="card-title"> <%= apparel.brand %> <%= apparel.model %></h5>
+            <p class="card-text">Size: <%= apparel.size %><br>
+              <%= number_to_currency apparel.price %></p>
+          </div>
+        </div>
       </div>
-      <div class="card-footer">
-        <small class="card-text"><%= link_to 'Show', apparel %></small>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+</div>

@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   def index
     @sneakers = Sneaker.all
     @apparels = Apparel.all
-
   end
 
   def about
