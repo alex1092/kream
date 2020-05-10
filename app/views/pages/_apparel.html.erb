@@ -1,0 +1,21 @@
+<h1 class='display-4 text-center m-3'>Apparel</h1>
+<div class="card-group">
+  <% @apparels.each do |apparel| %>
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= apparel.brand %>
+          <%= apparel.model %>
+        </h5>
+        <p class="card-text">
+          Size: <%= apparel.size %>
+          <br>
+          $<%= apparel.price %>
+        </p>
+      </div>
+      <div class="card-footer">
+        <small class="card-text"><%= link_to 'Show', apparel %></small>
+      </div>
+    </div>
+  <% end %>
