@@ -1,0 +1,21 @@
+<h1 class='display-4 text-center mt-5 m-3'>Sneakers</h1>
+<div class="card-group">
+  <% @sneakers.each do |sneaker| %>
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= sneaker.brand %>
+          <%= sneaker.model %>
+        </h5>
+        <p class="card-text">
+          Size: <%= sneaker.size %>
+          <br>
+          $<%= sneaker.price %>
+        </p>
+      </div>
+      <div class="card-footer">
+        <small class="card-text"><%= link_to 'Show', sneaker %></small>
+      </div>
+    </div>
+  <% end %>
