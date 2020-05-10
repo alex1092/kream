@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+
+<%= image_tag @sneaker.picture, class: 'img-thumbnail bopx', width: 150 if @sneaker.picture.attached?%>
 <p>
   <strong>Brand:</strong>
   <%= @sneaker.brand %>
