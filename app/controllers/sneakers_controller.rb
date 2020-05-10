@@ -25,6 +25,7 @@ class SneakersController < ApplicationController
   # POST /sneakers.json
   def create
     @sneaker = Sneaker.new(sneaker_params)
+    @sneaker.picture.attach(params[:sneaker][:picture])
 
     respond_to do |format|
       if @sneaker.save
@@ -69,6 +70,6 @@ class SneakersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sneaker_params
-      params.require(:sneaker).permit(:brand, :model, :size, :price)
+      params.require(:sneaker).permit(:brand, :model, :size, :price, :picture)
     end
 end

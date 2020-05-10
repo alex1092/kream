@@ -25,7 +25,9 @@ class ApparelsController < ApplicationController
   # POST /apparels.json
   def create
     @apparel = Apparel.new(apparel_params)
-
+    @apparel.picture.attach(params[:apparel][:picture])
+    @apparel.save
+    # @apparel.save
     respond_to do |format|
       if @apparel.save
         format.html { redirect_to @apparel, notice: 'Apparel was successfully created.' }
@@ -69,6 +71,6 @@ class ApparelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def apparel_params
-      params.require(:apparel).permit(:brand, :model, :size, :price)
+      params.require(:apparel).permit(:brand, :model, :size, :price, :picture)
     end
 end
