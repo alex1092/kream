@@ -5,6 +5,8 @@ class ApparelsController < ApplicationController
   # GET /apparels.json
   def index
     @apparels = Apparel.all
+    @shuffled_apparels = @apparels.shuffle
+
   end
 
   # GET /apparels/1

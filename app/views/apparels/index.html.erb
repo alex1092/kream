@@ -1,34 +1,22 @@
 <p id="notice"><%= notice %></p>
-
-
-<h1>Apparel</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Brand</th>
-      <th>Model</th>
-      <th>Size</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @apparels.each do |apparel| %>
-      <tr>
-        <td><%= apparel.brand %></td>
-        <td><%= apparel.model %></td>
-        <td><%= apparel.size %></td>
-        <td><%= apparel.price %></td>
-        <td><%= link_to 'Show', apparel %></td>
-        <td><%= link_to 'Edit', edit_apparel_path(apparel) %></td>
-        <td><%= link_to 'Destroy', apparel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<h1 class='display-4 m-3'>Apparels</h1>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3">
+    <%  @apparels.each do |apparel| %>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <%= image_tag apparel.picture, class: 'card-img-top', width: 300 if apparel.picture.attached?%>
+          <div class="card-body">
+            <h5 class="card-title"> <%= apparel.brand %> <%= apparel.model %></h5>
+            <p class="card-text">Size: <%= apparel.size %><br>
+              <%= number_to_currency apparel.price %></p>
+            <%= link_to 'Show', apparel %>
+            <%= link_to 'Show', apparel %>
+            <%= link_to 'Edit', edit_apparel_path(apparel) %>
+          </div>
+        </div>
+      </div>
+      <br>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-
+  </div>
+</div>

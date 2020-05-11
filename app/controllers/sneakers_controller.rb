@@ -1,6 +1,5 @@
 class SneakersController < ApplicationController
   before_action :set_sneaker, only: [:show, :edit, :update, :destroy]
-
   # GET /sneakers
   # GET /sneakers.json
   def index
@@ -10,6 +9,7 @@ class SneakersController < ApplicationController
   # GET /sneakers/1
   # GET /sneakers/1.json
   def show
+
   end
 
   # GET /sneakers/new
@@ -37,6 +37,8 @@ class SneakersController < ApplicationController
       end
     end
   end
+
+
 
   # PATCH/PUT /sneakers/1
   # PATCH/PUT /sneakers/1.json

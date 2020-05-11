@@ -1,7 +1,7 @@
 <h1 class='display-4 text-center mt-5 m-3'>Apparels</h1>
 <div class="container">
   <div class="row row-cols-1 row-cols-md-3">
-    <% @apparels[0..5].each do |apparel| %>
+    <%  @shuffled_apparels[0..5].each do |apparel| %>
       <div class="col-md-4">
         <div class="card h-100">
           <%= image_tag apparel.picture, class: 'card-img-top', width: 300 if apparel.picture.attached?%>
