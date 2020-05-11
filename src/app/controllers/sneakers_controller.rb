@@ -25,6 +25,7 @@ class SneakersController < ApplicationController
   # POST /sneakers.json
   def create
     @sneaker = Sneaker.new(sneaker_params)
+    @sneaker.user_id = current_user.id
     @sneaker.picture.attach(params[:sneaker][:picture])
 
     respond_to do |format|
