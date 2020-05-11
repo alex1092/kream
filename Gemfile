@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 # Gems for devise
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
+gem "rolify"
 
 # Hirb.enable in rails console to activate
 gem 'hirb'
