@@ -5,15 +5,18 @@
     <%  @apparels.each do |apparel| %>
       <div class="col-md-4">
         <div class="card h-100">
+        <%= link_to apparel do%>
           <%= image_tag apparel.picture, class: 'card-img-top', width: 300 if apparel.picture.attached?%>
+          <%end%>
           <div class="card-body">
             <h5 class="card-title"> <%= apparel.brand %> <%= apparel.model %></h5>
             <p class="card-text">Size: <%= apparel.size %><br>
               <%= number_to_currency apparel.price %></p>
-            <%= link_to 'Show', apparel %>
-            <%= link_to 'Edit', edit_apparel_path(apparel) %>
-            <%= link_to 'Destroy', apparel, method: :delete, data: { confirm: 'Are you sure?' } %>
+               <% if current_user && current_user.has_role?(:admin) || current_user && current_user.id == apparel.user_id %>
 
+                <%= link_to 'Edit', edit_apparel_path(apparel) %>
+                <%= link_to 'Destroy', apparel, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
           </div>
         </div>
       </div>
