@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_10_044008) do
+ActiveRecord::Schema.define(version: 2020_05_11_061133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2020_05_10_044008) do
     t.decimal "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_apparels_on_user_id"
   end
 
   create_table "sells", force: :cascade do |t|
@@ -65,24 +67,6 @@ ActiveRecord::Schema.define(version: 2020_05_10_044008) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "user_apparels", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "apparel_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["apparel_id"], name: "index_user_apparels_on_apparel_id"
-    t.index ["user_id"], name: "index_user_apparels_on_user_id"
-  end
-
-  create_table "user_sneakers", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "sneaker_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["sneaker_id"], name: "index_user_sneakers_on_sneaker_id"
-    t.index ["user_id"], name: "index_user_sneakers_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -100,11 +84,8 @@ ActiveRecord::Schema.define(version: 2020_05_10_044008) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "apparels", "users"
   add_foreign_key "sells", "apparels"
   add_foreign_key "sells", "sneakers"
   add_foreign_key "sells", "users"
-  add_foreign_key "user_apparels", "apparels"
-  add_foreign_key "user_apparels", "users"
-  add_foreign_key "user_sneakers", "sneakers"
-  add_foreign_key "user_sneakers", "users"
 end
