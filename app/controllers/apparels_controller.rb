@@ -27,6 +27,7 @@ class ApparelsController < ApplicationController
   # POST /apparels.json
   def create
     @apparel = Apparel.new(apparel_params)
+    @apparel.user_id = current_user.id
     @apparel.picture.attach(params[:apparel][:picture])
     @apparel.save
     # @apparel.save
