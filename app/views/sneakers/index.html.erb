@@ -6,7 +6,7 @@
       <div class="col-md-4">
         <div class="card h-100">
           <%= link_to sneaker do%>
-            <%= image_tag sneaker.picture, class: 'card-img-top product_img', width: 300 if sneaker.picture.attached?%>
+            <%= image_tag sneaker.picture, class: 'card-img-top ', width: 300 if sneaker.picture.attached?%>
           <%end%>
           <div class="card-body">
             <h5 class="card-title"> <%= sneaker.brand %> <%= sneaker.model %></h5>
