@@ -1,8 +1,7 @@
-<%= form_with(model: apparel, local: true) do |form| %>
+<%= bootstrap_form_with(model: apparel, local: true) do |form| %>
   <% if apparel.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(apparel.errors.count, "error") %> prohibited this apparel from being saved:</h2>
-
       <ul>
         <% apparel.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -10,35 +9,10 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :brand %>
-    <%= form.text_field :brand %>
-  </div>
-
-  <div class="field">
-    <%= form.label :model %>
-    <%= form.text_field :model %>
-  </div>
-
-  <div class="field">
-    <%= form.label :size %>
-    <%= form.select :size, options_for_select(["Select your size...", 'XS','S','M','L','XL','XXL','XXXL' ])%>
-
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :picture %>
-    <%= form.file_field :picture, accept: 'image/png, image/gif, image/jpeg, image/jpg'%>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.text_field :brand, class: 'form-control' %>
+  <%= form.text_field :model, class: 'form-control' %>
+  <%= form.text_field :price, class: 'form-control' %>
+  <%= form.select :size,(["Select your size...", 'XS','S','M','L','XL','XXL','XXXL' ]), class: "form-control"%>
+  <%= form.file_field :picture, accept: 'image/png, image/gif, image/jpeg, image/jpg', class: "custom-file-input"%>
+  <%= form.submit %>
 <% end %>
-

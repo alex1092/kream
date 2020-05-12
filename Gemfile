@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem "rolify"
-
+gem "bootstrap_form", "~> 4.0"
 # Hirb.enable in rails console to activate
 gem 'hirb'
 
