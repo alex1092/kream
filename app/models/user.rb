@@ -8,7 +8,5 @@ class User < ApplicationRecord
   has_many :apparels
   has_many :sneakers
   validates :f_name, :l_name, :phone, :dob, :username, presence: true
-  validates :phone,   :presence => {:message => 'hello world, bad operation!'},
-                     :numericality => true,
-                     :length => { :minimum => 10, :maximum => 15 }
+ 
 end
