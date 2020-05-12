@@ -23,9 +23,9 @@
 
 <p>
 <strong>Seller</strong>
-  <%= @apparel.user.user_name%>
+  <%= @apparel.user.username%>
 </p>
-<% if current_user && current_user.has_role?(:admin) || current_user && current_user.id == @sneaker.user_id %>
+<% if current_user && current_user.has_role?(:admin) || current_user && current_user.id == @apparel.user_id %>
 <%= link_to 'Edit', edit_apparel_path(@apparel) %> |
 <%end%>
 <%= link_to 'Back', apparels_path %>

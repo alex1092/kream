@@ -25,7 +25,7 @@
 
 <p>
 <strong>Seller:</strong>
-  <%= @sneaker.user.user_name %>
+  <%= @sneaker.user.username %>
 </p>
 
 <% if current_user && current_user.has_role?(:admin) || current_user && current_user.id == @sneaker.user_id %>
