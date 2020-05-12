@@ -1,3 +1,4 @@
+
 <%= bootstrap_form_with(model: sneaker, local: true) do |form| %>
   <% if sneaker.errors.any? %>
     <div id="error_explanation">
@@ -16,3 +17,4 @@
   <%= form.file_field :picture, accept: 'image/png, image/gif, image/jpeg, image/jpg'%>
   <%= form.submit %>
 <% end %>
+

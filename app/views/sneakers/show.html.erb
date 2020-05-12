@@ -1,36 +1,48 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
+<div class="row align-items-center justify-content-center">
+  <div class="col-4 align-self-center">
+    <p>
+      <strong>Brand:</strong>
+      <%= @sneaker.brand %>
+    </p>
 
-<%= image_tag @sneaker.picture, class: 'img-thumbnail bopx', width: 300 if @sneaker.picture.attached?%>
-<p>
-  <strong>Brand:</strong>
-  <%= @sneaker.brand %>
-</p>
+    <p>
+      <strong>Model:</strong>
+      <%= @sneaker.model %>
+    </p>
 
-<p>
-  <strong>Model:</strong>
-  <%= @sneaker.model %>
-</p>
+    <p>
+      <strong>Size:</strong>
+      <%= @sneaker.size %>
+    </p>
 
-<p>
-  <strong>Size:</strong>
-  <%= @sneaker.size %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @sneaker.price %>
-</p>
-
-
-<p>
-<strong>Seller:</strong>
-  <%= @sneaker.user.username %>
-</p>
-
-<% if current_user && current_user.has_role?(:admin) || current_user && current_user.id == @sneaker.user_id %>
-<%= link_to 'Edit', edit_sneaker_path(@sneaker) %> |
-<%end%>
-<%= link_to 'Back', sneakers_path %>
+    <p>
+      <strong>Price:</strong>
+      <%= @sneaker.price %>
+    </p>
 
 
+    <p>
+    <strong>Seller:</strong>
+      <%= @sneaker.user.username %>
+    </p>
+
+
+    <% if current_user && current_user.has_role?(:admin) || current_user && current_user.id == @sneaker.user_id %>
+    <%= link_to 'Edit', edit_sneaker_path(@sneaker) %> |
+    <%end%>
+    <%= link_to 'Back', sneakers_path %>
+  </div>
+  <div class="col-4">
+    <%= image_tag @sneaker.picture, class: 'img-thumbnail bopx', width: 350 if @sneaker.picture.attached?%>
+  </div>
+</div>
+
+
+
+
+
+
+</div>

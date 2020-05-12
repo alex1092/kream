@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
 <%= image_tag @apparel.picture, class: 'img-thumnail box', width: 150 if @apparel.picture.attached? %>
 <p>
@@ -29,3 +31,5 @@
 <%= link_to 'Edit', edit_apparel_path(@apparel) %> |
 <%end%>
 <%= link_to 'Back', apparels_path %>
+
+</div>
