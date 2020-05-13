@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <h2 class="card-title"><%= @product.brand %></h5>
+  <p class="card-text"><%= @product.style %></p>
+  <p class="card-text">Size: <%= @product.size %></p>
+  <p class="card-text">Vendor: <%= @product.user.username %></p>
+  <%= image_tag @product.picture, class: 'img-thumbnail bopx', width: 350 if @product.picture.attached?%>
+  <%= number_to_currency @product.price %>
+  <button id="pay-now">Checkout Now</button>
+</div>
+
+<script src="https://js.stripe.com/v3/"></script>
+
+<!-- Rails.application.credentials.dig(:stripe, :publishable_key) -->
+
+
+<script>
+function redirectToStripe (){
+  var stripe = Stripe('pk_test_F0IQKVI5uYJ7bj5Y94ZpXcSO00NCQzo8o7');
+  stripe.redirectToCheckout({
+    // Make the id field from the Checkout Session creation API response
+    // available to this file, so you can provide it as parameter here
+    // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+    sessionId: '<%= @session.id %>'
+  }).then(function (result) {
+    // If `redirectToCheckout` fails due to a browser or network
+    // error, display the localized error message to your customer
+    // using `result.error.message`.
+  });
+}
+
+document.querySelector("#pay-now").addEventListener("click", redirectToStripe)
+</script>

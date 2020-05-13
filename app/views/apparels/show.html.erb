@@ -1,31 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="container mt-5">
+  <p id="notice"><%= notice %></p>
+  <div class="row justify-content-center">
+    <div class="col-3 align-self-center">
+    
+      <div class="card-text-center" >
+        <div class="card-body">
+          <h2 class="card-title"><%= @apparel.brand %></h5>
+          <p class="card-text"><%= @apparel.model %></p>
+          <p class="card-text">Size: <%= @apparel.size %></p>
+          <p class="card-text">Vendor: <%= @apparel.user.username %></p>
 
-<%= image_tag @apparel.picture, class: 'img-thumnail box', width: 150 if @apparel.picture.attached? %>
-<p>
-  <strong>Brand:</strong>
-  <%= @apparel.brand %>
-</p>
+          <% if @apparel.price %>
+            <p class="card-text"> <%= number_to_currency @apparel.price %></p>
+            <%= link_to "Buy Now!", new_order_path(apparel_id: @apparel.id) %>
+          <% end %>
 
-<p>
-  <strong>Model:</strong>
-  <%= @apparel.model %>
-</p>
+          <% if current_user && current_user.has_role?(:admin) || current_user && current_user.id == @apparel.user_id %>
+            <p class="card-text"><%= link_to 'Edit', edit_apparel_path(@apparel) %> </p>
+          <%end%>
+        </div>
+        <a href="#" class="btn btn-primary">Buy Now</a>
+      <p class='pt-3'><%= link_to 'Back', apparels_path %></p>
+      </div>
+    </div>
+    <div class="col-4">
+      <%= image_tag @apparel.picture, class: 'img-thumbnail bopx', width: 350 if @apparel.picture.attached?%>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Size:</strong>
-  <%= @apparel.size %>
-</p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @apparel.price %>
-</p>
-
-<p>
-<strong>Seller</strong>
-  <%= @apparel.user.username%>
-</p>
-<% if current_user && current_user.has_role?(:admin) || current_user && current_user.id == @apparel.user_id %>
-<%= link_to 'Edit', edit_apparel_path(@apparel) %> |
-<%end%>
-<%= link_to 'Back', apparels_path %>

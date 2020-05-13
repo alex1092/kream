@@ -1,26 +1,27 @@
-<p id="notice"><%= notice %></p>
-<h1 class='display-4 m-3'>Apparels</h1>
 <div class="container">
-  <div class="row row-cols-1 row-cols-md-3">
-    <%  @apparels.each do |apparel| %>
-      <div class="col-md-4">
-        <div class="card h-100">
-        <%= link_to apparel do%>
-          <%= image_tag apparel.picture, class: 'card-img-top product_img', width: 300 if apparel.picture.attached?%>
-          <%end%>
-          <div class="card-body">
-            <h5 class="card-title"> <%= apparel.brand %> <%= apparel.model %></h5>
-            <p class="card-text">Size: <%= apparel.size %><br>
-              <%= number_to_currency apparel.price %></p>
-               <% if current_user && current_user.has_role?(:admin) || current_user && current_user.id == apparel.user_id %>
-
+  <p id="notice"><%= notice %></p>
+  <h1 class='display-4 m-3'>Apparels</h1>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-3">
+      <%  @apparels.each do |apparel| %>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <%= link_to apparel do%>
+              <%= image_tag apparel.picture, class: 'card-img-top product_img', width: 300 if apparel.picture.attached?%>
+            <%end%>
+            <div class="card-body">
+              <h5 class="card-title"> <%= apparel.brand %> <%= apparel.model %></h5>
+              <p class="card-text">Size: <%= apparel.size %><br>
+                <%= number_to_currency apparel.price %></p>
+              <% if current_user && current_user.has_role?(:admin) || current_user && current_user.id == apparel.user_id %>
                 <%= link_to 'Edit', edit_apparel_path(apparel) %>
                 <%= link_to 'Destroy', apparel, method: :delete, data: { confirm: 'Are you sure?' } %>
               <% end %>
+            </div>
           </div>
         </div>
-      </div>
-      <br>
-    <% end %>
+        <br>
+      <% end %>
+    </div>
   </div>
 </div>

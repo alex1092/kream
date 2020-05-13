@@ -5,7 +5,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :apparels
-  has_many :sneakers
-  validates :f_name, :l_name, :phone, :dob, :username, presence: true
+  has_many :products
+  validates :phone, :dob, :username, presence: true
 end
