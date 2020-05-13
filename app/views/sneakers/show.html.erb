@@ -9,8 +9,13 @@
           <p class="card-text"><%= @sneaker.model %></p>
           <p class="card-text">Size: <%= @sneaker.size %></p>
           <p class="card-text">Vendor: <%= @sneaker.user.username %></p>
+          <% if @sneakers.price %>
           <p class="card-text"> <%= number_to_currency @sneaker.price %></p>
+
           <% if current_user && current_user.has_role?(:admin) || current_user && current_user.id == @sneaker.user_id %>
+           <%= link_to "Buy Now", new_order_path%>
+           <% end %>
+
             <p class="card-text"><%= link_to 'Edit', edit_sneaker_path(@sneaker) %> </p>
           <%end%>
         </div>

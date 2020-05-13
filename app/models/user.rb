@@ -7,5 +7,5 @@ class User < ApplicationRecord
 
   has_many :apparels
   has_many :sneakers
-  validates :f_name, :l_name, :phone, :dob, :username, presence: true
+  validates :phone, :dob, :username, presence: true
 end

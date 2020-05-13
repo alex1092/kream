@@ -9,13 +9,18 @@
           <p class="card-text"><%= @apparel.model %></p>
           <p class="card-text">Size: <%= @apparel.size %></p>
           <p class="card-text">Vendor: <%= @apparel.user.username %></p>
-          <p class="card-text"> <%= number_to_currency @apparel.price %></p>
+
+          <% if @apparel.price %>
+            <p class="card-text"> <%= number_to_currency @apparel.price %></p>
+            <%= link_to "Buy Now!", new_order_path(apparel_id: @apparel.id) %>
+          <% end %>
+
           <% if current_user && current_user.has_role?(:admin) || current_user && current_user.id == @apparel.user_id %>
             <p class="card-text"><%= link_to 'Edit', edit_apparel_path(@apparel) %> </p>
           <%end%>
         </div>
         <a href="#" class="btn btn-primary">Buy Now</a>
-<p class='pt-3'><%= link_to 'Back', apparels_path %></p>
+      <p class='pt-3'><%= link_to 'Back', apparels_path %></p>
       </div>
     </div>
     <div class="col-4">
