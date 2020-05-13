@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def new
-    @apparel = Apparel.find(params[:apparel_id])
+    @product = Product.find(params[:product_id])
 
     # Rails.application.credentials.dig(:stripe, :secret_key)
 
@@ -9,11 +9,11 @@ class OrdersController < ApplicationController
     @session = Stripe::Checkout::Session.create(
       payment_method_types: ["card"],
       line_items: [{
-        name: @apparel.brand,
-        # model: @apparel.model,
-        # seller: @apparel.user.username,
-        # images: @apparel.image,
-        amount: (@apparel.price * 100).to_i,
+        name: @product.brand,
+        
+        # seller: @product.user.username,
+        # images: @product.image,
+        amount: (@product.price * 100).to_i,
         currency: 'aud',
         quantity: 1,
       }],

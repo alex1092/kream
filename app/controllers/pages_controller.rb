@@ -1,12 +1,10 @@
 class PagesController < ApplicationController
-  before_action :set_apparel, only: [:show]
-  before_action :set_sneakers, only: [:show]
- 
+
+  before_action :set_products, only: [:show]
   def index
-    @sneakers = Sneaker.all
-    @apparels = Apparel.all
-    @shuffled_apparels = @apparels.shuffle
-    @shuffled_sneakers = @sneakers.shuffle
+    
+    @products = Product.all
+    @shuffled_products = @products.shuffle
   end
 
   def about

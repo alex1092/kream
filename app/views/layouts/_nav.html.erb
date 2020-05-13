@@ -3,18 +3,14 @@
     <li>
       <%= link_to "KREAM", root_path, class: 'navbar-brand' %>
     </li>
-    <%= link_to 'Apparel', apparels_path, class: 'nav-link' %>
+    <%= link_to 'Products', products_path, class: 'nav-link' %>
   </li>
-  <li class="nav-item">
-    <%= link_to 'Sneakers', sneakers_path, class: 'nav-link' %>
-  </li>
+  
   <% if user_signed_in?%>
     <li class="nav-item">
-      <%= link_to 'Sell Apparel', new_apparel_path, class: 'nav-link' %>
+      <%= link_to 'Sell', new_product_path, class: 'nav-link' %>
     </li>
-    <li class="nav-item">
-      <%= link_to 'Sell Sneakers', new_sneaker_path, class: 'nav-link'%>
-    </li>
+    
     
     <li class="nav-item">
       <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link'%>

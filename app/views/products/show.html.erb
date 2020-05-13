@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <p id="notice"><%= notice %></p>
+  <div class="row justify-content-center">
+    <div class="col-5 align-self-center">
+      <div class="card-text-center" >
+        <div class="card-body">
+          <h2 class="card-title"><%= @product.brand %></h5>
+          <p class="card-text"><%= @product.style %></p>
+          <p class="card-text">Size: <%= @product.size %></p>
+          <p class="card-text">Vendor: <%= @product.user.username %></p>
+          <% if @product.price %>
+            <% if @product.price %>
+              <p class="card-text"> <%= number_to_currency @product.price %></p>
+            <% if current_user && current_user.has_role?(:admin) || current_user && current_user.id == @product.user_id %>
+              <p class="card-text"><%= link_to 'Edit', edit_product_path(@product) %> </p>
+            <% end %>
+              <%= link_to "Buy Now!", new_order_path(product_id: @product.id), class: "btn btn-primary" %>
+            <% end %>
+          <%end%>
+        </div>
+        <p class='pt-3'><%= link_to 'Back', products_path %></p>
+      </div>
+    </div>
+    <div class="col-4">
+      <%= image_tag @product.picture, class: 'img-thumbnail bopx', width: 350 if @product.picture.attached?%>
+    </div>
+  </div>
+</div>
