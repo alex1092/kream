@@ -32,6 +32,8 @@ gem 'omniauth-facebook'
 # Hirb.enable in rails console to activate
 gem 'hirb'
 
+gem "chartkick"
+gem 'groupdate'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
