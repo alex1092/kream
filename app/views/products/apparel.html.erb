@@ -1,10 +1,8 @@
-
+<h1 class='display-4 text-center mt-5 m-3'>Apparel</h1>
 <div class="container">
-  <p id="notice"><%= notice %></p>
-  <h1 class='display-4 mt-5 m-3'>products</h1>
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-3">
+  <div class="row row-cols-1 row-cols-md-3">
       <% @products.each do |product| %>
+    <% if product.category == "Apparel"  %>
         <div class="col-md-4">
           <div class="card h-100">
             <%= link_to product do%>
@@ -14,14 +12,10 @@
               <h5 class="card-title"> <%= product.brand %> <%= product.style %></h5>
               <p class="card-text">Size: <%= product.size %><br>
                 <%= number_to_currency product.price %></p>
-              <% if current_user && current_user.has_role?(:admin) || current_user && current_user.id == product.user_id %>
-                <%= link_to 'Edit', edit_product_path(product) %>
-                <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
-              <% end %>
             </div>
           </div>
         </div>
       <% end %>
-    </div>
+    <%end%>
   </div>
 </div>

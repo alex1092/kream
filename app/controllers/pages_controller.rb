@@ -14,4 +14,11 @@ class PagesController < ApplicationController
 
   def show
   end
+  def sneakers
+    @sneakers = Product.all
+    
+  end
+  def apparel
+    @apparel = Product.all
+  end
 end
