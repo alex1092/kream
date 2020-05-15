@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resources :products
   
   resources :orders, only: [:new]
+  root 'pages#index'
   get 'pages/sneakers', as: 'sneakers'
   get 'pages/apparel', as: 'apparel'
-  root 'pages#index'
   get 'pages/contact', as: 'contact'
   get 'pages/admin', as: 'admin'
   get 'orders/cancel', to: 'orders#cancel'
@@ -14,5 +14,4 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
