@@ -12,7 +12,6 @@
         user.password = 'password'
         user.password_confirmation = 'password'
         user.username = "fubar#{i}"
-        user.phone = "041212345#{i}"
         user.dob = "13/10/199#{i}"
         user.save!
     end
