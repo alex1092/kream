@@ -75,3 +75,5 @@ gem 'hirb'
 
 gem 'chartkick'
 gem 'groupdate'
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'sassc-rails', '>= 2.1.0'
