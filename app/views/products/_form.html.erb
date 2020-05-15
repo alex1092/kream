@@ -14,8 +14,8 @@
     <%= form.text_field :brand, class: 'form-control' %>
     <%= form.text_field :style, class: 'form-control' %>
     <%= form.text_field :price, class: 'form-control' %>
-    <%= form.select :size,(["Select your shoe size...", '5','6','7','8','9','10','11','12', '13']), class: "form-control"%>
-    <%= form.select :size,(["Select your apparel size...", 'XS','S','M','L','XL','XXL','XXXL' ]), class: "form-control"%>
+    <%= form.select :size, (["Shoe size...", '5','6','7','8','9','10','11','12', '13']), label: "Select Shoe Size", class: "form-control"%>
+    <%= form.select :size, (["Apparel size", 'XS','S','M','L','XL','XXL','XXXL' ]), label: "Select Apparel Size", class: "form-control"%>
 
     
     <%= form.file_field :picture, accept: 'image/png, image/gif, image/jpeg, image/jpg', class: "custom-file-input"%>

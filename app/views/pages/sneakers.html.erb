@@ -1,21 +1,19 @@
-<div class="container">
 <h1 class='display-4 mt-5 m-3'>Sneakers</h1>
-  <div class="row row-cols-1 row-cols-md-3">
-      <% @sneakers.each do |sneaker| %>
+<div class="row row-cols-1 row-cols-md-3">
+  <% @sneakers.each do |sneaker| %>
     <% if sneaker.category == "Sneakers"  %>
-        <div class="col-md-4">
-          <div class="card h-100">
-            <%= link_to sneaker do%>
-              <%= image_tag sneaker.picture, class: 'card-img-top sneaker_img', width: 300 if sneaker.picture.attached?%>
-            <%end%>
-            <div class="card-body">
-              <h5 class="card-title"> <%= sneaker.brand %> <%= sneaker.style %></h5>
-              <p class="card-text">Size: <%= sneaker.size %><br>
-                <%= number_to_currency sneaker.price %></p>
-            </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <%= link_to sneaker do%>
+            <%= image_tag sneaker.picture, class: 'card-img-top sneaker_img', width: 300 if sneaker.picture.attached?%>
+          <%end%>
+          <div class="card-body">
+            <h5 class="card-title"> <%= sneaker.brand %> <%= sneaker.style %></h5>
+            <p class="card-text">Size: <%= sneaker.size %><br>
+              <%= number_to_currency sneaker.price %></p>
           </div>
         </div>
-      <% end %>
-    <%end%>
-  </div>
+      </div>
+    <% end %>
+  <%end%>
 </div>

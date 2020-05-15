@@ -17,6 +17,9 @@
       <%= link_to 'Sell', new_product_path, class: 'nav-link' %>
     </li>
     <li class="nav-item">
+      <%= link_to 'Chat', conversations_path, class: 'nav-link'%>
+    </li>
+    <li class="nav-item">
       <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link'%>
     </li>
   <% else %>

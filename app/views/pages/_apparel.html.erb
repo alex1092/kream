@@ -1,21 +1,19 @@
 <h1 class='display-4 text-center mt-5 m-3'>Apparel</h1>
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-3">
-      <% @shuffled_products[0..5].each do |product| %>
+<div class="row row-cols-1 row-cols-md-3">
+  <% @shuffled_products[0..5].each do |product| %>
     <% if product.category == "Apparel"  %>
-        <div class="col-md-4">
-          <div class="card h-100">
-            <%= link_to product do%>
-              <%= image_tag product.picture, class: 'card-img-top product_img', width: 300 if product.picture.attached?%>
-            <%end%>
-            <div class="card-body">
-              <h5 class="card-title"> <%= product.brand %> <%= product.style %></h5>
-              <p class="card-text">Size: <%= product.size %><br>
-                <%= number_to_currency product.price %></p>
-            </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <%= link_to product do%>
+            <%= image_tag product.picture, class: 'card-img-top product_img', width: 300 if product.picture.attached?%>
+          <%end%>
+          <div class="card-body">
+            <h5 class="card-title"> <%= product.brand %> <%= product.style %></h5>
+            <p class="card-text">Size: <%= product.size %><br>
+              <%= number_to_currency product.price %></p>
           </div>
         </div>
-      <% end %>
-    <%end%>
-  </div>
+      </div>
+    <% end %>
+  <%end%>
 </div>
