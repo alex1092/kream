@@ -1,5 +1,8 @@
 @import 'bootstrap/dist/css/bootstrap';
 @import "rails_bootstrap_forms";
+
+$enable-responsive-font-sizes: true
+
 .carousel-item{
     max-height: 60vh !important;
 }
