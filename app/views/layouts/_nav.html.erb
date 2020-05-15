@@ -16,11 +16,13 @@
     <li class="nav-item">
       <%= link_to 'Sell', new_product_path, class: 'nav-link' %>
     </li>
-    <li class="nav-item">
-      <%= link_to 'Chat', conversations_path, class: 'nav-link'%>
-    </li>
-    <li class="nav-item">
-      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link'%>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name%></a>
+      <div class="dropdown-menu">
+        <%= link_to 'My Profile', dashboard_index_path, class: 'dropdown-item'%>
+        <%= link_to 'Chat', conversations_path, class: 'dropdown-item'%>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'dropdown-item'%>
+      </div>
     </li>
   <% else %>
     <li class="nav-item">
@@ -33,4 +35,3 @@
     </li>
   <%end%>
 </ul>
-
