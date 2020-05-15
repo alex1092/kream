@@ -10,5 +10,9 @@ Rails.application.routes.draw do
   get 'pages/admin', as: 'admin'
   get 'orders/cancel', to: 'orders#cancel'
   get 'orders/complete', to: 'orders#complete'
+
+  resources :conversations do
+    resources :messages
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
