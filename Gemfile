@@ -22,15 +22,6 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Gems for devise
-gem 'devise'
-gem 'devise-bootstrap-views', '~> 1.0'
-gem "rolify"
-gem "bootstrap_form", "~> 4.0"
-
-gem 'omniauth-facebook'
-# Hirb.enable in rails console to activate
-gem 'hirb'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -63,6 +54,24 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+
+#custom gems
 gem "aws-sdk-s3", "~> 1.64"
 
 gem "stripe", "~> 5.22"
+
+gem "font-awesome-rails"
+
+# Gems for devise
+gem 'devise'
+gem 'devise-bootstrap-views', '~> 1.0'
+gem "rolify"
+gem "bootstrap_form", "~> 4.0"
+
+gem 'omniauth-facebook'
+
+# Hirb.enable in rails console to activate
+gem 'hirb'
+
+gem "chartkick"
+gem 'groupdate'

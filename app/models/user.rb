@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
   has_many :products
-  # validates :phone, :dob, :username, presence: true
+  
 
   def self.from_omniauth(auth)
     puts auth

@@ -7,13 +7,18 @@ class PagesController < ApplicationController
     @shuffled_products = @products.shuffle
   end
 
-  def about
-  end
-
-  def contact
+  
+  def admin
+    @products = Product.all
   end
 
   def show
- 
+  end
+  def sneakers
+    @sneakers = Product.all
+    
+  end
+  def apparel
+    @apparel = Product.all
   end
 end

@@ -30,4 +30,10 @@ class OrdersController < ApplicationController
     puts @session
   end
 
+  def cancel
+  end
+
+  def complete
+  end
+
 end
