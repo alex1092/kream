@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'pages/contact', as: 'contact'
   get 'pages/admin', as: 'admin'
-
+  get 'orders/cancel', to: 'orders#cancel'
+  get 'orders/complete', to: 'orders#complete'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
