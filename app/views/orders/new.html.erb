@@ -1,4 +1,3 @@
-<div class="container mt-5">
   <h2 class="card-title"><%= @product.brand %></h5>
   <p class="card-text"><%= @product.style %></p>
   <p class="card-text">Size: <%= @product.size %></p>
@@ -6,7 +5,6 @@
   <%= image_tag @product.picture, class: 'img-thumbnail bopx', width: 350 if @product.picture.attached?%>
   <%= number_to_currency @product.price %>
   <button id="pay-now">Checkout Now</button>
-</div>
 
 <script src="https://js.stripe.com/v3/"></script>
 
