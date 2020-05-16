@@ -67,7 +67,6 @@ gem 'bootstrap_form', '~> 4.0'
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'rolify'
-gem 'bootstrap', '~> 4.4.1'
 gem 'omniauth-facebook'
 
 # Hirb.enable in rails console to activate
@@ -75,5 +74,3 @@ gem 'hirb'
 
 gem 'chartkick'
 gem 'groupdate'
-gem 'bootstrap-sass', '~> 3.4.1'
-gem 'sassc-rails', '>= 2.1.0'
