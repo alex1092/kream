@@ -1,20 +1,21 @@
 @import 'bootstrap/dist/css/bootstrap';
 @import "rails_bootstrap_forms";
 @import "bootstrap-sprockets";
+
 $enable-responsive-font-sizes: true;
 
 h1{
-    font-size: 3em;
+    font-size: 3rem;
 }
 h2{
-    font-size: 2.5em;
+    font-size: 2.5rem;
 }
 p{
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 a{
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 .carousel-item{
