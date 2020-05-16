@@ -67,7 +67,7 @@ gem 'bootstrap_form', '~> 4.0'
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'rolify'
-
+gem 'bootstrap', '~> 4.4.1'
 gem 'omniauth-facebook'
 
 # Hirb.enable in rails console to activate
