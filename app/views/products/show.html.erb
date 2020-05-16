@@ -1,6 +1,9 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
-  <%= link_to "Back", products_path %>
+
+  <%= link_to "Back", products_path, class: 'display-4' %>
+
+
   <div class="row justify-content-center">
     <div class="card border " style="width: 18rem;">
       <%= image_tag @product.picture, class: 'img-thumbnail ', width: 350 if @product.picture.attached?%>

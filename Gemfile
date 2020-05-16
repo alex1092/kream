@@ -74,3 +74,4 @@ gem 'hirb'
 
 gem 'chartkick'
 gem 'groupdate'
+gem "font-awesome-rails"
