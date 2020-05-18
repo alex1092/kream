@@ -75,3 +75,4 @@ gem 'hirb'
 gem 'chartkick'
 gem 'groupdate'
 gem "font-awesome-rails"
+gem 'pg_search'
