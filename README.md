@@ -1,28 +1,45 @@
 # Kream Marketplace - A place for designer clothing
 ### Problem
-I came up with the idea of kream from useing sites such as www.stockx.com and www.grailed.com. These sites are based in america and shipping would sometimes take weeks to get your product.  There is a large scene in Australia based around streetfashion.
+I came up with the idea of kream from useing sites such as www.stockx.com and www.grailed.com. With the growing popularity of American culture in Australia many consumers are turning to American sites to stay on board with trend in the fashion industry.  Unfortunatly These sites are based in america and shipping would sometimes take weeks to get your product resulting in damaged freight and a lackluster experience.  There is a large scene in Australia based around streetfashion and last year the "streetwear market" was estimated to have a market value of $185 billion dollars, Making it around 10% of the golobal apparel and footwear market
 ### Solution
-Kream was created to fill the gap in the market for Australian consumers.  It gives them the option to sign up and sell their products and chat to other users
+Kream was created to fill the gap in the market for Australian consumers.  It gives them the owwwwwwwaption to sign up sell and bye products and chat to other users.  It also alows admin to track products for sale and the growth of the website using chartkick and groupdate.  
 
 ### link to deployed site
-[link to heroku](https://morning-wave-82909.herokuapp.com/)
-### github link
-[Link To Gihub](https://github.com/alex1092/kream)
+[link to Heroku](https://morning-wave-82909.herokuapp.com/)
+### GitHub link
+[Link To GitHub](https://github.com/alex1092/kream)
+
 ## Purpose
+Using insporation from American sites like stockx and grailed kream Is a platform for Australian consumers to take part in an ever-growing industry and subculture giving them a space to buy and sell used or new sneakers or apparrel.
 
-Using insporation from American sites like stockx and grailed kream Is a platform for Australian consumers to take part in an ever growing industry and subculture giving them a space to buy and sell used or new sneakers or apparrel.
-
-## Funtionality/Features
+## Functionality/Features
+* Kream features an easy to use navigation bar allowing users to move around the site with some restrictions thanks to rolify which adds authorizion functionality. 
+* Users can sign up either using oniauth which is connected to facebook or simply bye entering their details on the sign-up page, which was created using the devise gem.  Using devise kream can create unique users with their email being there primary key
+* Using the scaffold feature in ruby on rails a scaffold was created for products.  The products scaffold accepts a category (Sneakers, Apparel or Accesories), a brand, style, price, size and using Amazon sw the user can upload dynamic images to be saved on amazons sw bucket.
+* The home page features 4 secitions, A navbar for easy navigation, A carousel of pictures which can be used to market featured items, and 6 randomly shuffled sneakers and shoes.
+* Kream also has a private messanging function, alowing users to read and send messages between one another.
+* If a user has authorization and is an administator they will have access to the Admin menu.  Here a dashboard can be found which has links to various options (Which are yet to be implemented) The administrator can also view what products are for sale and visually see using chartkick how many members have signed up to the site.
+* The user can search for products from the nav menu or with either apparel or sneakers.  The search function is powered by pg_search and is searching the brand and style columns within the products table.  Using pg_searches inbuilt methods tsearch the user only needs to search for a small part of the word to find what they are looking for.
+* Using ruby methods the nav bar will change depending on wether you are authorized, authenticated or just a guest.  An admin will have acces to products, selling, chat, their profile page and the admin page.  Authenticated users will have access to everything besides the admin page and guests will just have access to everything besideds My profile chat and the admin page
 
 ## sitemap
+[Link To Admin Sitemap](docs/admin-sitemap.png)
+[Link To User sitemap](docs/user-signed-in-kream.png)
+[Link To Guest Sitemap](docs/guest-kream.png)
 
 ## screenshots
 
+
 ## target audience
+
+The target audience for Kream is Men and Women aged between 16 and 35.  Younger individuales are commited fans to brands like supreme, yeezy and nike.  You can see lines around the corner of every supreme store every thursday for their weekly drop.  Kream will not only act as a proxy for people to sell their shoes but will also act as a marketplace for others to purchase 
 
 ## tech stack (e.g. html, css, deployment platform etc)
 
-## User stories 
+Kream was built using ruby on rails and is deployed on heorku, it also uses bootstrap's css framework and Jquery apart of bootstrap.
+
+## User stories
+[Link to user Stories](docs/user_stories.png)
 
 ## wireframes
 
@@ -30,31 +47,34 @@ Using insporation from American sites like stockx and grailed kream Is a platfor
 
 ## erd
 
-## High level components descriptoin
+[Link To Wireframes](docs/KREAM-ERD.png)
 
+## High level components description
+
+Essentially the entire app is based around the User model and the Products model.  The user model alows users to be created edited updated and deleted, allowing users to freely sign up and destroy their profiles as they wish.  The products model and controller handles the products,  While a user is signed in they are able to CRUD products at their will.  
 
 ## Third party apps and apis
 
-* aws-sdk-s3 - This is used to connect sw to the website so a user can upload dynamic images
+* aws-sdk-s3 - This is used to connect sw to the website so a user can upload dynamic images it is an application built by amazon web services.  It is used to store and hold images users upload
 
-* stripe - stipe is used as a payment gateway
-font-awesome - font-awseome is used to enable icons within the view
+* stripe - stipe is used as a payment gateway and haldes all transactions through the site.  They are CCA complient therfore the are legally aloud to accept credit card payment
 
-* bootstrap_form - bootstrap form is a framework for creating forms
+* bootstrap_form - bootstra_form is a rails form builder that makes it super easy to integrate bootstrap forms into your rails application.  It provides a helper that augments the rails form helper
 
-* devise - devise is used to created authentication 
+* devise - Devise is a flexible authentication solution for Rails based on Warden. It: Is Rack based; Is a complete MVC solution based on Rails engines; Allows you to have multiple models signed in at the same time; Is based on a modularity concept: use only what you really need.
 
 * devise bootstrap views - This is a framework used to create bootstrap styled views for the devise layout
 
-* rolify - rolify is used to create authorization
+* rolify - rolify is used to create authorization on a resource object
 
-* Omniauth facebook - This is used in correlation with devise so users can sign up using their facebook credentials
+* Omniauth - OmniAuth is a library that standardizes multi-provider authentication for web applications. It was created to be powerful, flexible, and do as little as possible. Any developer can create strategies for OmniAuth that can authenticate users via disparate systems. OmniAuth strategies have been created for everything from Facebook to LDAP.
 
 * chartkick - chartkick is used on the admin page to create a graph
 
 * groupdate - groupdate is used in correlation with chartkick for the graph
 
-* pg-search - pg search is used to search the product model
+* pg-search - PgSearch builds named scopes that take advantage of PostgreSQL's full text search. We are using pg_search on the products table while referencing the brand and style
+
 
 ## Models and relationships
 
@@ -69,7 +89,6 @@ font-awesome - font-awseome is used to enable icons within the view
 **Conversation.rb** - The conversation model belongs to a sender and a recipient,  the sender and recipient is a foreign key connected to the User model.  The conversation also has many messages which are dependent.  Conversation.rb also validates the uniquness of the sender id and the recipient id so they can only have one chat room open at a time.
 
 **Message.rb** - Message.rb belongs to both a user and a conversation and validates the presence of a conversation_id, user_id and body which is text.  It also creates a timestamp
-
 
 ## Schema 
 
@@ -168,3 +187,4 @@ ActiveRecord::Schema.define(version: 2020_05_15_072242) do
   add_foreign_key "products", "users"
 end
 ```
+
