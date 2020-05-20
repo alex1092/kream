@@ -4,11 +4,10 @@
       <h2>Search All</h2>
       <%= form_tag(products_path, method: "get") do %>
         <%= text_field_tag(:brand, params[:brand]) %>
-        <%= button_tag(type: "submit", class: "btn btn-warning mt-3") do %>
+        <%= button_tag(type: "submit", class: "btn btn-outline-dark mt-3") do %>
           <i class="fa fa-search"></i> Search
         <% end %>
       <% end %>
-      
     </div>
     <div class="col">
       <h1 class='display-4 mt-4 ml-3'>Products</h1>

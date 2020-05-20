@@ -1,12 +1,9 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
-
-  <%= link_to "Back", products_path, class: 'display-4' %>
-
-
+  <p><%= link_to "Back", products_path %></p>
   <div class="row justify-content-center">
-    <div class="card border " style="width: 18rem;">
-      <%= image_tag @product.picture, class: 'img-thumbnail ', width: 350 if @product.picture.attached?%>
+    <div class="card border-light mb-3 " style="width: 18rem;">
+      <%= image_tag @product.picture, class: 'card-img-top ', width: 350 if @product.picture.attached?%>
       <div class="card-body">
         <h5 class="card-title"><%= @product.brand %></h5>
         <p class="card-text"><%= @product.style %> <br>
@@ -17,9 +14,7 @@
             <% if current_user && current_user.has_role?(:admin) || current_user && current_user.id == @product.user_id %>
               <p class="card-text"><%= link_to 'Edit', edit_product_path(@product) %> </p>
             <% end %>
-            <% if @product.user_id != current_user.id %>
-              <%= link_to "Buy Now!", new_order_path(product_id: @product.id), class: "btn btn-primary" %>
-            <%end %>
+            <%= link_to "Buy Now!", new_order_path(product_id: @product.id), class: "btn btn-outline-dark" %>
           <% end %>
         </div>
       </div>
