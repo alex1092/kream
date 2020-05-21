@@ -8,8 +8,12 @@ class PagesController < ApplicationController
   end
 
   def admin
+    if current_user.has_role?(:admin)
     # Setting products for the admin page/controller 
     @products = Product.all
+    else
+      redirect_to root_path
+    end
   end
 
   def show; end

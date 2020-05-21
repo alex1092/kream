@@ -22,7 +22,12 @@ class ProductsController < ApplicationController
   end
 
   # GET /products/1/edit
-  def edit; end
+  def edit
+    if current_user.id == @product.user || current_user.has_role?(:admin)
+    else
+      redirect_to root_path
+    end
+  end
 
   # POST /products
   # POST /products.json
@@ -45,6 +50,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+  
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -53,7 +59,8 @@ class ProductsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
-    end
+    
+  end
   end
 
   # DELETE /products/1
