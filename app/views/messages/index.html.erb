@@ -1,17 +1,9 @@
 <div class="container mt-1">
   <%= link_to "Back", conversations_path %>
   <div class="panel-xl panel-default w-100 mt-3">
-    <% if @over_5 %>
-      <%= link_to 'Show All', '?m=all', class: 'btn btn-link pull-right' %>
-    <% end %>
-    <%= link_to '<i class="glyphicon glyphicon-log-out icon-flipped"></i>'.html_safe,
-'/conversations', { :class => 'tooltips, btn btn-link', 'data-toggle' => 'tooltip',
-   'data-placement' => 'right', :title => 'Back To Inbox' } %>
-    <script>
-      $(document).ready(function(){
-          $('[data-toggle="tooltip"]').tooltip();
-      });
-    </script>
+
+
+<!-- Displaying all messages between the two users -->
     <% @messages.each do |message| %>
       <% if message.body %>
         <% user = User.find(message.user_id) %>

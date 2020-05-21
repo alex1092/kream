@@ -87,6 +87,8 @@
         </button>
       </div>
     </div>
+
+    <!-- This is the line of code to generate the chart it is taking the User model and and returning its created at and grouping it by day -->
     <%= line_chart User.group_by_day(:created_at).count , id: "myChart", class: "my-4 w-100 h-100"%>
     <h2>Products</h2>
     <div class="table-responsive">
@@ -101,6 +103,8 @@
           </tr>
         </thead>
         <tbody>
+
+      <!--   This returns all the products in a list and all of the products details  -->
           <% @products.each do |product| %>
             <tr>
               <td><%= product.id %></td>

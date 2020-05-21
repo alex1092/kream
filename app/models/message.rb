@@ -1,7 +1,9 @@
 class Message < ActiveRecord::Base
+
+  # Connecting models
   belongs_to :conversation
   belongs_to :user
-
+  # Validating presencse 
   validates_presence_of :body, :conversation_id, :user_id
 
   def message_time

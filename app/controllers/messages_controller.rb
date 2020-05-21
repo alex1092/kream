@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     @conversation = Conversation.find(params[:conversation_id])
   end
 
+  # Connecting messages to the conversations variable
   def index
     @messages = @conversation.messages
     @message = @conversation.messages.new

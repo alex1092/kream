@@ -56,15 +56,27 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # custom gems
+# Gem for Aws 
 gem 'aws-sdk-s3', '~> 1.64'
+# Gem for stripe 
 gem 'stripe', '~> 5.22'
+# Gem for font-awesome 
 gem 'font-awesome-rails'
+# gem for bootstrap form 
 gem 'bootstrap_form', '~> 4.0'
+# Gem for devise 
 gem 'devise'
+# Gem for devise bootstrap views 
 gem 'devise-bootstrap-views', '~> 1.0'
+# Gem for created authorization 
 gem 'rolify'
+# Enables omniauth using facebook as a provider
 gem 'omniauth-facebook'
+# Hirb is a gem used in the command line,  Type Hirb.enable in the command line to enable 
 gem 'hirb'
+
+# For creating the chart in the admin page 
 gem 'chartkick'
 gem 'groupdate'
+# Used to create the search function
 gem 'pg_search'

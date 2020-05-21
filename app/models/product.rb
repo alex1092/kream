@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+
+    # Connecting to user and attaching a picture, also validating several things for the product 
     belongs_to :user
     has_one_attached :picture
     validates :category, :brand, :style, :size, :price, :picture, presence: true

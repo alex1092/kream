@@ -18,6 +18,9 @@
             <h1 class="card-header">All Conversations:</h1>
             <div class="card-block">
               <div class="item">
+
+              <!-- This is showing the conversations if their are any -->
+
                 <% @conversations.each do |conversation| %>
                   <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
                     <% if conversation.sender_id == current_user.id %>
@@ -31,6 +34,9 @@
               </div>
             </div>
           </div>
+
+          <!-- this is showing all the users that a messageable -->
+          
           <div id="new" class="collapse">
             <div class="card-block">
               <h1 class="card-header">All Users:</h1>
